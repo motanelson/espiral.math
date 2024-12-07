@@ -25,11 +25,15 @@ def draw_spiral(screen):
 
     # Desenhar pontos da espiral
     while radius < screen_size:
-        x = int(center_x + radius * math.cos(angle))
-        y = int(center_y + radius * math.sin(angle))
-        pygame.draw.circle(screen, WHITE, (x, y), 1)  # Desenhar um ponto
+        backx = int(center_x + radius * math.cos(angle))
+        backy = int(center_y + radius * math.sin(angle))
+
         radius += radius_increment
         angle += angle_increment
+        x = int(center_x + radius * math.cos(angle))
+        y = int(center_y + radius * math.sin(angle))
+        pygame.draw.line(screen, WHITE, (x, y),(backx,backy), 1)  # Desenhar um ponto
+        
 
 # Loop principal
 running = True
